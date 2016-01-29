@@ -29,7 +29,7 @@
     "build": "echo undefined",
     "clean": "echo undefined",
     "lint": "eslint .",
-    "start": "NODE_ENV=production node server/prod_entry.js",
+    "start": "NODE_ENV=production && echo undefined",
     "start:dev": "NODE_ENV=development node server/dev_entry.js ",
     "test": "NODE_ENV=test find ./app -name '*.tests.js' | xargs mocha --compilers js:babel-core/register --require ./setup/test_helper.js"
   },
@@ -58,8 +58,6 @@
     "chokidar": "^1.4.2",
     "css-loader": "^0.23.1",
     "css-modules-require-hook": "^2.1.0",
-    "eslint": "^1.10.3",
-    "eslint-plugin-react": "^3.16.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "jsdom": "^8.0.1",
     "mocha": "^2.4.5",

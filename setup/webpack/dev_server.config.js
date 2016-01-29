@@ -8,8 +8,7 @@ module.exports = {
   devtool: '#eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    // './client/entry.js'
-    './client/app.js'
+    './client/entry.js'
   ],
   output: {
     path: path.resolve(root_folder, 'www'),
@@ -34,14 +33,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel'],
-        include: path.join(root_folder, 'client'),
-        // include: path.resolve(root_folder, 'app'),
       },
       // CSS
       {
         test: /\.css$/,
-        include: path.join(root_folder, 'client'),
-        // include: path.resolve(root_folder, 'app'),
+        // include: path.join(root_folder, 'app'),
         loader: 'style-loader!css-loader?' + qs.stringify({
           modules: true,
           importLoaders: 1,

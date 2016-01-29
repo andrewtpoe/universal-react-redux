@@ -1,13 +1,13 @@
 require('css-modules-require-hook')({
-  generateScopedName: function(exportedName, exportedPath) {
-    // This path should match the localIdentName in your webpack.config.js.
-    var path = exportedPath
-              .substr(1)
-              .replace(/\//g, "-")
-              .replace('.css', '');
-
-    return path + "-" + exportedName;
-  }
+  // generateScopedName: function(exportedName, exportedPath) {
+  //   // This path should match the localIdentName in your webpack.config.js.
+  //   var path = exportedPath
+  //             .substr(1)
+  //             .replace(/\//g, "-")
+  //             .replace('.css', '');
+  //
+  //   return path + "-" + exportedName;
+  // }
 });
 
 import express from 'express';
@@ -17,7 +17,7 @@ import webpack from 'webpack';
 
 import config from '../setup/webpack/dev_server.config';
 import { port } from '../setup/environment';
-import apiRoutes from '../setup/api_routes';
+import api_router from './api_router';
 import page_router from './page_router';
 
 const compiler = webpack(config);
@@ -34,17 +34,11 @@ app.use(require("webpack-hot-middleware")(compiler));
 
 // Include server routes as a middleware. These are used for the API
 app.use((req, res, next) => {
-  apiRoutes(req, res, next);
+  api_router(req, res, next);
 });
 
 // Anything else gets passed to the client app's server rendering
-// app.use(page_router);
-app.get('*', function(req, res, next) {
-  require('../client/server-render')(req.path, function(err, page) {
-    if (err) return next(err);
-    res.send(page);
-  });
-});
+app.use(page_router);
 
 // Do "hot-reloading" of express stuff on the server
 // Throw away cached modules and re-require next time
@@ -75,26 +69,3 @@ server.listen(3000, 'localhost', function(err) {
   var addr = server.address();
   console.log('Listening at http://%s:%d', addr.address, addr.port);
 });
-
-
-
-
-
-// import path from 'path';
-// import express from 'express';
-//
-// import router from './router';
-//
-// const app = express();
-//
-//
-// app.listen(port, (error) => {
-//   if (error) {
-//     console.error(error);
-//     process.exit(10);
-//   } else {
-//     console.log(`Application is live at port: ${port}`);
-//   }
-// });
-//
-// export default app;
