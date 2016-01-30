@@ -1,8 +1,6 @@
 # Universal React & Redux Web Application Template
 
-As a developer, it is hard to beat the simplicity that comes with starting a new project in Ruby on Rails. In less than two minutes you can go from nothing to building the homepage. On the other hand, the extreme flexibility that comes from starting a Node app is impossible to beat. You can cherry pick from hundreds of thousands of libraries each suited for a specific task. With that amazing flexibility comes a unique problem, setup and configuration.
-
-Universal JavaScript is the future of web development. Unfortunately, there are no pre-made templates yet that compares to the simplicity of starting a Ruby on Rails app while providing all the features that modern developers want, namely:
+Universal JavaScript is the future of web development. Unfortunately, I have not yet found a pre-made template yet that compares to the simplicity of starting a Ruby on Rails app while providing all the features that modern developers want, namely:
 
   - Universal React & Redux
   - Hot Reloading of everything while in development mode
@@ -10,13 +8,11 @@ Universal JavaScript is the future of web development. Unfortunately, there are 
   - Modular testing (this template uses Mocha and Chai)
   - Ready to deploy to Heroku as is
 
-The goal of this project is to build a simple and instantly deployable web application template with the simplicity of Rails and the full power of Universal JavaScript.
+The goal of this project is to build a simple and instantly deployable web application template with the startup simplicity of Rails and the full power of Universal JavaScript.
 
 This project builds on [glenjamin's ultimate hot reloading example](https://github.com/glenjamin/ultimate-hot-reloading-example).
 
 ### Installing
-
-This project is being developed in Node 5.4.0, earlier versions of Node may or may not work.
 
 ```
 git clone https://github.com/andrewtpoe/universal-react-redux.git
@@ -30,7 +26,7 @@ npm install
 
 The development server will turn off many features that should only be functional in production, like Google Analytics. It will also enable Hot Reloading of the routes, CSS, and JavaScript for a more friendly development environment.
 
-### Launch the production server
+### Launch the production server | NOT YET FUNCTIONAL
 
 ```
 npm run build:production
@@ -41,7 +37,7 @@ The production server is what will be run on Heroku. In your Heroku app, set an 
 
 ### Creating new components
 
-This project strongly encourages a preference towards a functional programming style and ES6 syntax. Additionally, it encourages a very modular approach to building components. Each new component, container, or page should be created in a new folder. This new folder should have the following 4 files:
+This project strongly encourages functional programming and ES6 syntax. Additionally, it encourages a very modular approach to building components. Each new component, container, or page should be created in a new folder. This new folder should have the following 4 files:
   * index.js - This is the actual React component.
   * styles.css - This is the styles specific to only this React component. Import the styles into index.js in the same manner you will require any other JavaScript library: `import Styles from './styles.css'`. Use the styles like this: `<div className={Styles.yourClassName} ></div>`. For more information on using CSS modules, check out [these docs](https://github.com/css-modules/css-modules)
   * tests.js - This file contains the tests specific to this component. This skeleton is set up to test using mocha and chai
@@ -54,11 +50,9 @@ This project strongly encourages a preference towards a functional programming s
   }
   ```
 
-When creating a new page, add the route to `setup/page_routes.js`.
+When creating a new view page, add the route to `setup/page_routes.js`.
 
-Please strive to adhere to these guidelines when developing new components.
-
-## Deploying this application
+## Deploying this application | NOT YET FUNCTIONAL
 
 This application is ready to deploy to Heroku as is. Before deploying this skeleton make sure you update the config/environment.js file with your relevant variables.
 
