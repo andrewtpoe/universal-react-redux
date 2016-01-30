@@ -1,3 +1,5 @@
+// These routes reflect those used by the in app api
+
 var express = require('express');
 
 var app = express.Router();
