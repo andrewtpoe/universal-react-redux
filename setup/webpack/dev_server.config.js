@@ -4,6 +4,7 @@ var webpack = require('webpack');
 
 var root_folder = path.resolve(__dirname, '..', '..');
 
+
 module.exports = {
   devtool: '#eval-source-map',
   entry: [
@@ -11,7 +12,7 @@ module.exports = {
     './client/entry.js'
   ],
   output: {
-    path: path.resolve(root_folder, 'www'),
+    path: path.join(root_folder, 'www'),
     filename: 'scripts/dev_bundle.js',
     publicPath: '/'
   },
@@ -37,12 +38,13 @@ module.exports = {
       // CSS
       {
         test: /\.css$/,
-        // include: path.join(root_folder, 'app'),
-        loader: 'style-loader!css-loader?' + qs.stringify({
-          modules: true,
-          importLoaders: 1,
-          localIdentName: '[path][name]-[local]'
-        })
+        // loader: 'css/locals?module&localIdentName=[name]__[local]___[hash:base64:5]',
+        loader: 'style-loader!css-loader?modules',
+        //  + qs.stringify({
+        //   modules: true,
+        //   importLoaders: 1,
+        //   localIdentName: '[path][name]-[local]'
+        // })
       }
     ]
   }
